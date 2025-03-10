@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quiz App</title>
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+	<div class="app">
+
+		<div class="bg-white p-6 rounded-lg shadow-lg w-96">
+			<h2 class="text-xl font-bold mb-4" id="question">Savol yuklanmoqda...</h2>
+			<div id="options" class="space-y-2"></div>
+			<button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded" onclick="nextQuestion()">Keyingi</button>
+			<p class="mt-4 font-bold" id="result"></p>
+		</div>
+
+		<script>
+			const questions = [
+				{ question: "HTML nima?", options: ["Dasturlash tili", "Belgilash tili", "Operatsion tizim", "Ma'lumotlar bazasi"], answer: "Belgilash tili" },
+				{ question: "CSS nima uchun ishlatiladi?", options: ["Skript yozish", "Dizayn qilish", "Ma'lumot saqlash", "Server yaratish"], answer: "Dizayn qilish" },
+				{ question: "JavaScript qaysi?", options: ["Front-end tili", "Back-end tili", "Ikkiyoqlama tili", "Hech biri emas"], answer: "Ikkiyoqlama tili" },
+				{ question: "DOM nima?", options: ["Data Object Model", "Document Object Model", "Design Object Model", "None"], answer: "Document Object Model" },
+				{ question: "Bootstrap nima uchun kerak?", options: ["Backend dasturlash", "UI dizayn", "Ma'lumotlar bazasi", "Shaxsiy maqsadlar"], answer: "UI dizayn" },
+				{ question: "Flexbox nima?", options: ["CSS layout tizimi", "JS kutubxonasi", "PHP funksiyasi", "Hech biri emas"], answer: "CSS layout tizimi" },
+				{ question: "JavaScriptda let nima?", options: ["O'zgaruvchi e'lon qilish", "Fayl yuklash", "Serverga bog'lanish", "Rasmni yuklash"], answer: "O'zgaruvchi e'lon qilish" },
+				{ question: "API nima?", options: ["Server", "Interfeys", "Brauzer", "Dasturiy ta'minot"], answer: "Interfeys" },
+				{ question: "React nima?", options: ["JS framework", "JS kutubxona", "CSS preprocessor", "Hech biri emas"], answer: "JS kutubxona" },
+				{ question: "LocalStorage nima?", options: ["Ma'lumotlar bazasi", "Brauzer xotirasi", "Server xotirasi", "Cache"], answer: "Brauzer xotirasi" }
+			]
+
+			let currentQuestion = 0
+			let score = 0
+
+			function loadQuestion() {
+				if (currentQuestion >= questions.length) {
+					document.getElementById("result").innerText = `Sizning natijangiz: ${score} / ${questions.length}`
+					document.getElementById("question").style.display = "none"
+					document.getElementById("options").style.display = "none"
+
+					// 5 soniyadan keyin boshqa sahifaga yo'naltirish
+					setTimeout(() => {
+						window.location.href = "one-page.html"
+					}, 5000)
+
+					return
+				}
+
+				const q = questions[currentQuestion]
+				document.getElementById("question").innerText = q.question
+				const optionsDiv = document.getElementById("options")
+				optionsDiv.innerHTML = ""
+
+				q.options.forEach(option => {
+					const btn = document.createElement("button")
+					btn.innerText = option
+					btn.className = "block w-full px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+					btn.onclick = () => checkAnswer(option)
+					optionsDiv.appendChild(btn)
+				})
+			}
+
+			function checkAnswer(answer) {
+				if (answer === questions[currentQuestion].answer) {
+					score++
+				}
+				currentQuestion++
+				loadQuestion()
+			}
+
+			function nextQuestion() {
+				loadQuestion()
+			}
+
+			loadQuestion();
+		</script>
+	</div>
+
+</body>
+
+</html>
