@@ -20,18 +20,29 @@
 		</div>
 
 		<script>
-			const questions = [
-				{ question: "HTML nima?", options: ["Dasturlash tili", "Belgilash tili", "Operatsion tizim", "Ma'lumotlar bazasi"], answer: "Belgilash tili" },
-				{ question: "CSS nima uchun ishlatiladi?", options: ["Skript yozish", "Dizayn qilish", "Ma'lumot saqlash", "Server yaratish"], answer: "Dizayn qilish" },
-				{ question: "JavaScript qaysi?", options: ["Front-end tili", "Back-end tili", "Ikkiyoqlama tili", "Hech biri emas"], answer: "Ikkiyoqlama tili" },
-				{ question: "DOM nima?", options: ["Data Object Model", "Document Object Model", "Design Object Model", "None"], answer: "Document Object Model" },
-				{ question: "Bootstrap nima uchun kerak?", options: ["Backend dasturlash", "UI dizayn", "Ma'lumotlar bazasi", "Shaxsiy maqsadlar"], answer: "UI dizayn" },
-				{ question: "Flexbox nima?", options: ["CSS layout tizimi", "JS kutubxonasi", "PHP funksiyasi", "Hech biri emas"], answer: "CSS layout tizimi" },
-				{ question: "JavaScriptda let nima?", options: ["O'zgaruvchi e'lon qilish", "Fayl yuklash", "Serverga bog'lanish", "Rasmni yuklash"], answer: "O'zgaruvchi e'lon qilish" },
-				{ question: "API nima?", options: ["Server", "Interfeys", "Brauzer", "Dasturiy ta'minot"], answer: "Interfeys" },
-				{ question: "React nima?", options: ["JS framework", "JS kutubxona", "CSS preprocessor", "Hech biri emas"], answer: "JS kutubxona" },
-				{ question: "LocalStorage nima?", options: ["Ma'lumotlar bazasi", "Brauzer xotirasi", "Server xotirasi", "Cache"], answer: "Brauzer xotirasi" }
-			]
+		const questions = [
+  { question: "Eko tizim nima?", options: ["Atrof-muhitdagi barcha o'zgarishlar", "Tabiiy va biologik omillar bir-biriga bog'lanib, bir-biriga ta'sir ko'rsatadigan tizim", "Faqat hayvonlar orasidagi o'zaro aloqalar", "Tabiatdagi faqat o'simliklar va ularning o'zaro ta'siri"], answer: "Tabiiy va biologik omillar bir-biriga bog'lanib, bir-biriga ta'sir ko'rsatadigan tizim" },
+  { question: "Eko tizimning asosiy tarkibiy qismlari qanday?", options: ["Atmosfera va geosfera", "Biotik va abiotik omillar", "Biotik omillar va ekologik xilma-xillik", "Faoliyat va o'zgarishlar"], answer: "Biotik va abiotik omillar" },
+  { question: "Biotik omillar qaysilarni o'z ichiga oladi?", options: ["O'simliklar va hayvonlar", "Havo va suv", "Quyosh nuri", "Tempratura va bosim"], answer: "O'simliklar va hayvonlar" },
+  { question: "Abiotik omillar qaysi elementlarni o'z ichiga oladi?", options: ["O'simliklar", "Suv, havo, quyosh nuri", "Hayvonlar", "Biologik xususiyatlar"], answer: "Suv, havo, quyosh nuri" },
+  { question: "Fotosintez jarayoni qanday eko tizimda amalga oshadi?", options: ["Suvli eko tizimda", "Yer yuzasidagi eko tizimda", "O'simliklar va mikroorganizmlar orqali", "Hayvonlar o'rtasida"], answer: "O'simliklar va mikroorganizmlar orqali" },
+  { question: "Eko tizimdagi energiya oqimi qanday amalga oshadi?", options: ["Biotik omillardan abiotik omillarga", "Quyoshdan o'simliklarga, keyin esa hayvonlarga", "Hayvonlardan o'simliklarga", "Abiotic omillardan biotik omillarga"], answer: "Quyoshdan o'simliklarga, keyin esa hayvonlarga" },
+  { question: "Tizimdagi energiya manbai nima?", options: ["Suv", "Quyosh nuri", "O'simliklar", "Hayvonlar"], answer: "Quyosh nuri" },
+  { question: "Eko tizimda asosiy ishlab chiqaruvchi kim?", options: ["O'simliklar", "Hayvonlar", "Mikroorganizmlar", "To'qimalar"], answer: "O'simliklar" },
+  { question: "Eko tizimda asosiy iste'molchi kim?", options: ["O'simliklar", "Hayvonlar", "Mushuklar", "Fungi"], answer: "Hayvonlar" },
+  { question: "Eko tizimda ularni qayta ishlovchi (dekompozitor) kim?", options: ["Yirtqich hayvonlar", "Mikroorganizmlar va ba'zi o'simliklar", "O'simliklar", "Iste'molchilar"], answer: "Mikroorganizmlar va ba'zi o'simliklar" },
+  { question: "Biosfera tushunchasi nimani anglatadi?", options: ["Yer yuzasidagi barcha suvlardan iborat hudud", "Yer yuzasidagi barcha tirik organizmlar va ularning yashash muhiti", "Atmosferaning pastki qismi", "Fauna va floraning hududi"], answer: "Yer yuzasidagi barcha tirik organizmlar va ularning yashash muhiti" },
+  { question: "Hidrosfera nima?", options: ["Tirik organizmlar", "O'simliklar va hayvonlar", "Yer yuzasidagi suvlarning jami", "Havo qatlamlari"], answer: "Yer yuzasidagi suvlarning jami" },
+  { question: "Eko tizimning ekologik piramidasida birinchi pog'onada kim joylashadi?", options: ["O'simliklar", "Yirtqichlar", "Decompozitorlar", "Iste'molchilar"], answer: "O'simliklar" },
+  { question: "Hayvonlarning eko tizimdagi roli nima?", options: ["Yalpi energiya o'zgarishiga sabab bo'lish", "Suyaklarni parchalanishiga yordam beradi", "O'simliklar va mikroorganizmlar bilan oziqlanadi, ekologik tizimda muvozanatni saqlaydi", "Faqat ekologik xilma-xillikni o'z ichiga oladi"], answer: "O'simliklar va mikroorganizmlar bilan oziqlanadi, ekologik tizimda muvozanatni saqlaydi" },
+  { question: "Eko tizimdagi ularning yashash joylari bilan bog'liq bo'lgan omilni nima deb atashadi?", options: ["Biotop", "Ekotop", "Biosfera", "Ekologik piramida"], answer: "Biotop" },
+  { question: "Ekologik muvozanat nima?", options: ["Eko tizimdagi faqat hayvonlarning o'zaro ta'siri", "O'simlik va hayvonlar orasidagi bir tomonlama munosabat", "Eko tizimda biotik va abiotik omillarning o'zaro muvozanati", "Biotopdagi hayvonlar faqat bir-biriga ta'sir qiladi"], answer: "Eko tizimda biotik va abiotik omillarning o'zaro muvozanati" },
+  { question: "Birinchi darajali iste'molchilar kimlar?", options: ["O'simliklar", "Yirtqichlar", "O'simliklarni iste'mol qiladigan hayvonlar (herbivorlar)", "Omadli hayvonlar"], answer: "O'simliklarni iste'mol qiladigan hayvonlar (herbivorlar)" },
+  { question: "Tropik o'rmon eko tizimi qanday xususiyatlarga ega?", options: ["Issiq va nam sharoitlar, katta ekologik xilma-xillik", "Salqin va arid sharoitlar, kam ekologik xilma-xillik", "Sovuq va kam namlik sharoitlari", "Kam ifodalangan xilma-xillik"], answer: "Issiq va nam sharoitlar, katta ekologik xilma-xillik" },
+  { question: "Tuproqning eko tizimdagi roli nima?", options: ["Tirik organizmlarning oziqlanishi va yashash muhiti", "Faqat suvning harakatlanishini ta'minlash", "Faoliyatni amalga oshiruvchi omil", "Faqat o'simliklarning o'sishi uchun zarur"], answer: "Tirik organizmlarning oziqlanishi va yashash muhiti" },
+  { question: "Tuproq eroziyasi eko tizimga qanday ta'sir qiladi?", options: ["Eko tizimni tezda tiklaydi", "Eko tizimning barqarorligini saqlaydi", "Eko tizimning resurslarini kamaytiradi", "Eko tizimning faqat iqlimga ta'sir qiladi"], answer: "Eko tizimning resurslarini kamaytiradi" }
+];
+
 
 			let currentQuestion = 0
 			let score = 0
